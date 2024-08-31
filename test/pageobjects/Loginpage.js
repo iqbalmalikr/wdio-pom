@@ -1,11 +1,7 @@
-
 import Page from "./page.js";
 import { $ } from "@wdio/globals"
 
 class LoginPage extends Page {
-    open(_path) {
-        return super.open("")
-    }
 
     get textBoxUsername() {
         return $('#user-name')
@@ -15,8 +11,8 @@ class LoginPage extends Page {
         return $("#password")
     }
 
-    get buttonLogin() {
-        return $("#login-button")
+    get LoginButton() {
+        return $('#login-button')
     }
 
     async inputUsername (username){
@@ -27,14 +23,14 @@ class LoginPage extends Page {
         await this.textBoxPassword.setValue(password)
     }
 
-    async clickbuttonlogin(){
-        await this.buttonLogin.click
+    async clickLoginButton(){
+        await this.LoginButton.click()
     }
 
     async login(username, password) {
         await this.textBoxUsername.setValue(username);
         await this.textBoxPassword.setValue(password);
-        await this.buttonLogin.click()
+        await this.clickLoginButton();
     }
 
     open(){
